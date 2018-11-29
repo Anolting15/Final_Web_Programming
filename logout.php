@@ -9,7 +9,7 @@ $_SESSION = array();
 session_destroy();
 
 //take user to login page
-header("location: login.php")
+header("location: finalhtml.html");
 exit;
 
 ?>
