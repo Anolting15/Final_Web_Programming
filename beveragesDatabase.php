@@ -6,6 +6,8 @@
 
 <head>
 
+
+
 </head>
 
 	<body>
@@ -20,10 +22,12 @@
 
 			$password = "";
 
+			
 
 			/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 			
+
 			//create connection
 
 			$conn = new mysqli($servername, $username, $password);
@@ -299,74 +303,6 @@
 		?>
 
 		<br>
-
-		<?php
-
-		$servername = "localhost";
-
-		$username = "root";
-
-		$password = "";
-
-		$dbname = "beverages";
-
-
-
-		/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-		
-
-		// Create connection
-
-		$conn = new mysqli($servername, $username, $password, $dbname);
-
-		// Check connection
-
-		if ($conn->connect_error) {
-
-			die("Connection failed: " . $conn->connect_error);
-
-		} 
-
-
-
-		/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-		
-
-		//Commands to auto fill the cnventory Field
-
-		$sql = "INSERT INTO Customer (firstname, lastname, username, password, email, ccInfo)
-
-		VALUES ('Test', 'Tester',  'test', 'test', 'test@ung.edu', '1111111111111111')";
-
-
-
-		/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-		
-
-		//Check to see if the inventory table is populated correctly
-
-		if ($conn->multi_query($sql) === TRUE) {
-
-			echo "Test Customer record created successfully";
-
-			echo "<br>";
-
-		} else {
-
-			echo "Error: " . $sql . "<br>" . $conn->error;
-
-			echo "<br>";
-
-		}
-
-
-
-		$conn->close();
-
-		?>
 
 	</body>
 
