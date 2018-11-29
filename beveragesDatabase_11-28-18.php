@@ -122,7 +122,7 @@
 		$sql .= "INSERT INTO inventory (Pname, cost, stock)
 		VALUES ('Seasonal Roast Coffee', 10.00, 1000);";
 		$sql .= "INSERT INTO inventory (Pname, cost, stock)
-		VALUES ('Green Roast Tea', 10.00, 500);";
+		VALUES ('Green Tea', 10.00, 500);";
 		$sql .= "INSERT INTO inventory (Pname, cost, stock)
 		VALUES ('Earl Gray Tea', 10.00, 500);";
 		$sql .= "INSERT INTO inventory (Pname, cost, stock)
