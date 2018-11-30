@@ -19,8 +19,8 @@ html {
 
 body {
 	margin:0;
-	background-color: DarkSalmon;
-	color: #330000;
+	background-color: #330000;
+	color: wheat;
 }
 
 ul {
@@ -40,7 +40,7 @@ li {
 
 li a {
 	display: block;
-	color: DarkSalmon;
+	color: wheat;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -50,7 +50,34 @@ li a:hover {
     background-color: #111;
 }
 
-.header {
+.header1 {
+	position: relative;
+	color:wheat;
+	margin:0;
+	height: 20%;
+	text-align: center;
+	/*img src images-free.net/content/cup-of-coffee-computer-wallpaper.html
+    */
+	background-image: url("coffeeImg.jpg");
+	background-repeat: no-repeat;
+    /*background-size: contain;*/
+		
+	
+	background-position: center;
+	background-size:cover;
+    padding: 5%;
+    box-shadow: 5px 10px 8px wheat;
+}
+
+.header2 {
+	position: relative;
+	margin:0;
+	padding: 5%;
+	height: 15%;
+	text-align: center;
+}
+
+.header3 {
 	position: relative;
 	margin:0;
 	padding: 5%;
@@ -62,4 +89,12 @@ li a:hover {
 	position:relative;
 	margin:5%;
 	text-align:center;
+	}
+	
+	
+	@media only screen and (min-width: 768px) {
+		
+		 html{font-size:25px;}
+		.header1 {height: 40%; padding:8%;}
+		
 	}
