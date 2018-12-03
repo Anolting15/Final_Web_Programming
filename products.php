@@ -15,6 +15,8 @@
 	  <ul>
 	
 	    <li><a href="finalhtml.php">Home</a></li>
+		
+		<li><a href="products.php">Products</a></li>
 
 		<li><a href = "shoppingCart.php">Shopping Cart</a></li>
 
