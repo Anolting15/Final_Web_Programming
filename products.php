@@ -4,7 +4,7 @@
 
 
 <!--Ordering Form-->
-<form onclick="final_forms.php" method="get">
+<form onclick="" method="get">
 <Table>
 	<tr>
 		<th><!--Image--></th>
@@ -122,6 +122,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "beverages";
+$id = 1;
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -166,7 +167,7 @@ if ($conn->connect_error) {
 	echo $darkRoastAmount;
 	if($darkRoastAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 1, $darkRoastAmount*10.00, $darkRoastAmount)";
+		VALUES ($id, 1, $darkRoastAmount*10.00, $darkRoastAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -182,7 +183,7 @@ if ($conn->connect_error) {
 	echo $mediumRoastAmount;
 	if($mediumRoastAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 2, $mediumRoastAmount*10.00, $mediumRoastAmount)";
+		VALUES ($id, 2, $mediumRoastAmount*10.00, $mediumRoastAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -198,7 +199,7 @@ if ($conn->connect_error) {
 	echo $lightRoastAmount;
 	if($lightRoastAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 3, $lightRoastAmount*10.00, $lightRoastAmount)";
+		VALUES ($id, 3, $lightRoastAmount*10.00, $lightRoastAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -214,7 +215,7 @@ if ($conn->connect_error) {
 	echo $specialtyRoastAmount;
 	if($specialtyRoastAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 4, $specialtyRoastAmount*10.00, $specialtyRoastAmount)";
+		VALUES ($id, 4, $specialtyRoastAmount*10.00, $specialtyRoastAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -230,7 +231,7 @@ if ($conn->connect_error) {
 	echo $seasonalRoastAmount;
 	if($seasonalRoastAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 5, $seasonalRoastAmount*10.00, $seasonalRoastAmount)";
+		VALUES ($id, 5, $seasonalRoastAmount*10.00, $seasonalRoastAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -246,7 +247,7 @@ if ($conn->connect_error) {
 	echo $greenTeaAmount;
 	if($greenTeaAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 6, $greenTeaAmount*10.00, $greenTeaAmount)";
+		VALUES ($id, 6, $greenTeaAmount*10.00, $greenTeaAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -262,7 +263,7 @@ if ($conn->connect_error) {
 	echo $earlTeaAmount;
 	if($earlTeaAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 7, $earlTeaAmount*10.00, $earlTeaAmount)";
+		VALUES ($id, 7, $earlTeaAmount*10.00, $earlTeaAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -278,7 +279,7 @@ if ($conn->connect_error) {
 	echo $chaiTeaAmount;
 	if($chaiTeaAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 8, $chaiTeaAmount*10.00, $chaiTeaAmount)";
+		VALUES ($id, 8, $chaiTeaAmount*10.00, $chaiTeaAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -294,7 +295,7 @@ if ($conn->connect_error) {
 	echo $oolongTeaAmount;
 	if($oolongTeaAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 9, $oolongTeaAmount*10.00, $oolongTeaAmount)";
+		VALUES ($id, 9, $oolongTeaAmount*10.00, $oolongTeaAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
@@ -310,7 +311,7 @@ if ($conn->connect_error) {
 	echo $sweetTeaAmount;
 	if($sweetTeaAmount != 0){
 		$sql = "INSERT INTO shoppingcart (id, ProdId, totCost, numItems)
-		VALUES (1, 10, $sweetTeaAmount*10.00, $sweetTeaAmount)";
+		VALUES ($id, 10, $sweetTeaAmount*10.00, $sweetTeaAmount)";
 		echo $sql;
 		echo "<br>";
 		if ($conn->query($sql) === TRUE) {
