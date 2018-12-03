@@ -19,9 +19,9 @@
 
 	  <ul>
 	
-	    <li><a href="#home">Home</a></li>
+	    <li><a href="finalhtml.php">Home</a></li>
 
-		<li><a href = "#shoppingcart">Shopping Cart</a></li>
+		<li><a href = "shoppingCart.php">Shopping Cart</a></li>
 
 		<li><a href = "login.php">Log in</a></li>
 
