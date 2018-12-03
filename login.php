@@ -10,7 +10,7 @@ session_start();
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
-    header("location: finalhtml.html");
+    header("location: finalhtml.php");
 
     exit;
 
@@ -130,7 +130,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             // Redirect user to welcome page
 
-                            header("location: finalhtml.html");
+                            header("location: finalhtml.php");
 
                         } else{
 
