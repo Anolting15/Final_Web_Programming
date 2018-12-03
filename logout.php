@@ -3,7 +3,7 @@
 //start session
 
 //Commented this out because the links do not work when it is there
-//session_start();
+session_start();
 
 
 
