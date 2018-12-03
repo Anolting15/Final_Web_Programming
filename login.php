@@ -187,14 +187,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
 
     <title>Login</title>
+	
+	<meta name = "viewport" content = "width = device-width, initial-scale=1.0">
 
-    
-
-    </style>
+	<link rel="stylesheet" href="finalcss.css"/>
 
 </head>
 
 <body>
+	<div class = "nav">
+
+	  <ul>
+	
+	    <li><a href="finalhtml.php">Home</a></li>
+		
+		<li><a href="products.php">Products</a></li>
+
+		<li><a href = "shoppingCart.php">Shopping Cart</a></li>
+
+		<li><a href = "login.php">Log in</a></li>
+
+		<li><a href = "register.php">Create Account</a></li>
+
+		<li><a href = "logout.php">Logout</a></li>
+	
+	  </ul>
+
+	</div>
+
+
+ <!---Background image src: https://www.mandarin-gear.com/products/mandarin-gear-copper-stainless-steel-french-press-coffee-maker-28-oz-800-ml
+  --->
+  
+  
+	<div class = "header1">
+
+	  <h1><i>Handcrafted Tea and Coffee</i></h1>
+
+	</div>
+	
+
 
     <div class="wrapper">
 
