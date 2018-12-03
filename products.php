@@ -1,6 +1,37 @@
 <!DOCTYPE HTML>
 <html>  
+<head>
+
+ <meta name = "viewport"
+
+  content = "width = device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="finalcss.css"/>
+
+</head>
 <body>
+<div class = "nav">
+
+	  <ul>
+	
+	    <li><a href="finalhtml.php">Home</a></li>
+
+		<li><a href = "shoppingCart.php">Shopping Cart</a></li>
+
+		<li><a href = "login.php">Log in</a></li>
+
+		<li><a href = "register.php">Create Account</a></li>
+
+		<li><a href = "logout.php">Logout</a></li>
+	
+	  </ul>
+
+	</div>
+<div class = "header1">
+	  <h1><i>Handcrafted Tea and Coffee</i></h1>
+</div>
+<br>
+<br>
 
 
 <!--Ordering Form-->
