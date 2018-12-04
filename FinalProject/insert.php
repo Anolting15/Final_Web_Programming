@@ -39,7 +39,7 @@ $stmt->close();
 
 // $query = mysql_query("insert into customer(firstname, lastname, username, password, email, ccinfo) values ('$firstname', '$lastname', '$username', '$password', '$email', '$ccinfo')");
 echo "<br/><br/><span>Data Inserted successfully...!!</span>";
-
+header("location: login.php");
 
 $conn->close(); // Closing Connection with Server
 ?>
