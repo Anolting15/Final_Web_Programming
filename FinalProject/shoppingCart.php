@@ -176,15 +176,24 @@
 
 		print "<br>&nbspTotal Cost: $".$actualTotal;
 		
-		print '<br><br>&nbsp<input type="button" name="Checkout" value="Checkout with Saved Card" onclick="showDiv()" /><br><br>';
-
+		print '<form action="shoppingCart.php" method="post">';
 		
+		print '<br><br>&nbsp<input type="submit" id= "CheckoutButton" name="CheckoutButton" value="Checkout with Saved Card" /><br><br>';
 		
+		print '</form>';
 		
-		//div shown after checkout button pressed. ////////////////////////////////////////////////////////////////////////////////////
+			// if button pressed, set $thing to 1 and print out contents of div to process inventory. 
 		
-		print '<div id="checkout"  style="display:none;" class="answer_list" ><br>';
+			$thing = 0;
 			
+			if (isset($_POST['CheckoutButton'])){ 
+				{
+					$thing = 1;
+				}
+			  }
+			  
+			print '<div id="checkout" class="answer_list" ><br>';
+			if($thing == 1) {
 				
 			print "<p>&nbspPayment of $".$actualTotal." Successful! Thank you for your purchase!</p><br>";
 			
@@ -196,6 +205,8 @@
 			//will use to update inventory. Also clear shopping cart?
 			$sql2 = "";
 			$result2 = "";
+			
+			
 			
 			if ($result->num_rows > 0) {
 
@@ -210,38 +221,31 @@
 						
 						print $Pname . " <br> ".$Pid . " <br> " . $numItems . " <br> ";
 						
-						
 						$sql2 = "UPDATE beverages.inventory SET stock =  stock - $numItems WHERE inventory.Pid = $Pid";
-						$result2 = $conn->query($sql2);
-							
+						
+						
 
-				}
+						$result2 = $conn->query($sql2);
+					}
+						
 
 			} 
 
+			}
 	
 		print '</div>';
-		
+
 		
 		
 	
 
 		$conn->close();
+		
 
 	}
 
 ?>
 
-
-
-
-	
-	<script>
-	
-	function showDiv(){
-		document.getElementById('checkout').style.display = "block";
-	}
-	</script>
 
 	
 
