@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                     if(mysqli_stmt_fetch($stmt)){
 
-                        if(password_verify($password, $hashed_password)){
+                      
 
                             // Password is correct, so start a new session
 
@@ -132,13 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             header("location: finalhtml.php");
 
-                        } else{
-
-                            // Display an error message if password is not valid
-
-                            $password_err = "The password you entered was not valid.";
-
-                        }
+                        
 
                     }
 
