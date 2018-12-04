@@ -41,5 +41,6 @@ $stmt->close();
 echo "<br/><br/><span>Data Inserted successfully...!!</span>";
 header("location: login.php");
 
+
 $conn->close(); // Closing Connection with Server
 ?>
