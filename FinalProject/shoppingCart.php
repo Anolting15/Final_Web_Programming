@@ -155,7 +155,7 @@
 
 		else {
 
-			echo "0 results";
+			echo "&nbsp<a href = 'products.php'>Add items to shopping cart!</a><br><br>";
 
 		}
 
@@ -202,10 +202,11 @@
 			$result = $conn->query($sql);
 			
 			
-			//will use to update inventory. Also clear shopping cart?
+			//update inventory and clear shopping cart
 			$sql2 = "";
 			$result2 = "";
-			
+			$sql3 = "";
+			$result3 = "";
 			
 			
 			if ($result->num_rows > 0) {
@@ -223,9 +224,12 @@
 						
 						$sql2 = "UPDATE beverages.inventory SET stock =  stock - $numItems WHERE inventory.Pid = $Pid";
 						
-						
-
 						$result2 = $conn->query($sql2);
+						
+						$sql3 = "DELETE FROM beverages.shoppingcart WHERE $id = id";
+						
+						$result3 = $conn->query($sql3);
+						
 					}
 						
 
