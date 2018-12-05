@@ -53,9 +53,6 @@
 
 	</div>
 
-
- <!---Background image src: https://www.mandarin-gear.com/products/mandarin-gear-copper-stainless-steel-french-press-coffee-maker-28-oz-800-ml
-  --->
   
   
 	<div class = "header1">
