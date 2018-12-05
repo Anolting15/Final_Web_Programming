@@ -202,7 +202,7 @@
 			$result = $conn->query($sql);
 			
 			
-			//update inventory and clear shopping cart
+			//used to clear shopping cart and update inventory.
 			$sql2 = "";
 			$result2 = "";
 			$sql3 = "";
@@ -220,7 +220,7 @@
 						$Pid = $row["Pid"];
 						$numItems = $row["numItems"];
 						
-						print $Pname . " <br> ".$Pid . " <br> " . $numItems . " <br> ";
+						print "&nbspProduct: " . $Pname . " <br>&nbspAmount Purchased: " . $numItems . " <br><br><br> ";
 						
 						$sql2 = "UPDATE beverages.inventory SET stock =  stock - $numItems WHERE inventory.Pid = $Pid";
 						
@@ -245,6 +245,17 @@
 
 		$conn->close();
 		
+
+	}
+
+?>
+
+
+	
+
+</body>
+
+</html>
 
 	}
 
