@@ -1,3 +1,12 @@
+
+<!-- File Name: inventoryReport.php
+	 Authors: Austin Nolting, Kevin Thompson, Carmen Ward
+	 Date: 12/6/18 
+	 
+	 Function: allows website admin to update inventory with more products
+				and updates to show state of inventory after customer has made a purchase.--->
+
+
 <!DOCTYPE HTML>
 
 <html>  
@@ -22,47 +31,10 @@
 
 <body>
 
-<div class = "nav">
-
-
-
-	  <ul>
-
-	
-
-	    <li><a href="finalhtml.php">Home</a></li>
-
-		
-
-		<li><a href="products.php">Products</a></li>
-
-
-
-		<li><a href = "shoppingCart.php">Shopping Cart</a></li>
-
-
-
-		<li><a href = "login.php">Log in</a></li>
-
-
-
-		<li><a href = "register.php">Create Account</a></li>
-
-
-
-		<li><a href = "logout.php">Logout</a></li>
-
-	
-
-	  </ul>
-
-
-
-	</div>
 
 <div class = "header1">
 
-	  <h1><i>Handcrafted Tea and Coffee</i></h1>
+	  <h1><i>Inventory Report</i></h1>
 
 </div>
 
@@ -72,8 +44,198 @@
 
 
 
+
+
+<!--Ordering Form-->
+
+<form action="inventoryReport.php" method="post">
+
+<Table>
+
+	<tr>
+
+
+		<th>Product</th>
+
+
+		<th>Cost</th>
+
+		<th>Amount</th>
+
+	</tr>
+
+
+
+	<tr>
+
+
+
+		<td>Dark Roast Coffee</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="darkRoastAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+
+		<td>Medium Roast Coffee</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="mediumRoastAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+
+		<td>Light Roast Coffee</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="lightRoastAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+		<td>Specialty Roast Coffee</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="specialtyRoastAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+		<td>Seasonal Roast Coffee</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="seasonalRoastAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+
+		<td>Green Tea</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="greenTeaAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+
+		<td>Earl Gray Tea</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="earlTeaAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+		<td>Chai Tea</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="chaiTeaAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+		<td>Oolong Tea</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="oolongTeaAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+	
+
+	<tr>
+
+
+
+		<td>Sweet Tea</td>
+
+
+		<td>$10.00</td>
+
+		<td><Input Type="number" name="sweetTeaAmount" min="0" max="100" value="0"></td>
+
+	</tr>
+
+</Table>
+
+<input type="submit" name="submit" value = "Submit">
+
+</form>
+
+
+
 <?php
 
+
+
+
+if (isset($_POST['submit'])){
+	
+	run();
+	
+}
+
+
+
+
+
+
+function run() {
+	
 	$servername = "localhost";
 
 	$username = "root";
@@ -82,53 +244,376 @@
 
 	$dbname = "beverages";
 
-	$totalCost = 0;
 
-	$id = 0;
-	
-	$Pname = $Pid = $numItems = "";
-
-	session_start();
-
-	if(isset($_SESSION["id"])){
-
-	$id = (String)$_SESSION["id"];
-
-	}
-
-	else{
-
-	echo "User isn't signed in. Unable to use shoping cart right now.";
-
-	}
+   $darkRoastAmount = $mediumRoastAmount = $lightRoastAmount = $specialtyRoastAmount = $seasonalRoastAmount = $greenTeaAmount = $earlTeaAmount = $chaiTeaAmount = $oolongTeaAmount = $sweetTeaAmount = 0;
 
 	
 
-	if($id !=0){
+	if(isset($_POST['darkRoastAmount'])){
 
-		// Create connection
+		$darkRoastAmount = $_POST["darkRoastAmount"];
 
-		$conn = new mysqli($servername, $username, $password, $dbname);
+	}
 
-		// Check connection
+	if(isset($_POST['mediumRoastAmount'])){
 
-		if ($conn->connect_error) {
+		$mediumRoastAmount = $_POST["mediumRoastAmount"];
 
-			die("Connection failed: " . $conn->connect_error);
+	}
+
+	if(isset($_POST['lightRoastAmount'])){
+
+		$lightRoastAmount = $_POST["lightRoastAmount"];
+
+	}
+
+	if(isset($_POST['specialtyRoastAmount'])){
+
+		$specialtyRoastAmount = $_POST["specialtyRoastAmount"];
+
+	}
+
+	if(isset($_POST['seasonalRoastAmount'])){
+
+		$seasonalRoastAmount = $_POST["seasonalRoastAmount"];
+
+	}
+
+	if(isset($_POST['greenTeaAmount'])){
+
+		$greenTeaAmount = $_POST["greenTeaAmount"];
+
+	}
+
+	if(isset($_POST['earlTeaAmount'])){
+
+		$earlTeaAmount = $_POST["earlTeaAmount"];
+
+	}
+
+	if(isset($_POST['chaiTeaAmount'])){
+
+		$chaiTeaAmount = $_POST["chaiTeaAmount"];
+
+	}
+
+	if(isset($_POST['oolongTeaAmount'])){
+
+		$oolongTeaAmount = $_POST["oolongTeaAmount"];
+
+	}
+
+	if(isset($_POST['sweetTeaAmount'])){
+
+		$sweetTeaAmount = $_POST["sweetTeaAmount"];
+
+	}
+
+
+	// Create connection
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+
+	if ($conn->connect_error) {
+
+		die("Connection failed: " . $conn->connect_error);
+
+	} 
+	
+
+
+	
+	//update inventory upon button press
+
+
+	
+	if($darkRoastAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $darkRoastAmount WHERE Pid = 1";
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+		}
+
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($mediumRoastAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $mediumRoastAmount WHERE Pid = 2";
+
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
 
 		} 
 
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
 
 
-		$sql = "SELECT Pname, Pid, totCost, numItems FROM shoppingcart, inventory WHERE id=$id AND ProdId = Pid";
 
-		$result = $conn->query($sql);
+	if($lightRoastAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $lightRoastAmount WHERE Pid = 3";
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($specialtyRoastAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $specialtyRoastAmount WHERE Pid = 4";
+
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($seasonalRoastAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $seasonalRoastAmount WHERE Pid = 5";
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($greenTeaAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $mediumRoastAmount WHERE Pid = 6";
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($earlTeaAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $earlTeaAmount WHERE Pid = 7";
+
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($chaiTeaAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $chaiTeaAmount WHERE Pid = 8";
+
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process order.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($oolongTeaAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $oolongTeaAmount WHERE Pid = 9";
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process update.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+
+
+	if($sweetTeaAmount != 0){
+
+		$sql = "UPDATE inventory SET stock = stock + $sweetTeaAmount WHERE Pid = 10";
+
+		echo "<br>";
+
+		if ($conn->query($sql) === TRUE) {
+
+			echo "New record created successfully";
+
+			echo "<br>";
+
+		} 
+
+		 else {
+
+			echo "Error: Unable to process order.";
+
+			echo "<br>";
+
+		}
+
+	}
+
+	$conn->close();
+	
+
+
+	
+		$conn2 = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+
+		if ($conn2->connect_error) {
+
+			die("Connection failed: " . $conn2->connect_error);
+
+		} 
+		
+		
+	
+		$sql2 = "SELECT Pid, Pname, cost, stock FROM inventory";
+
+		$result = $conn2->query($sql2);
 
 
 
 		if ($result->num_rows > 0) {
 
-			echo "<table><tr><th>Item Name</th><th>Cost</th><th>Number of Items</th></tr>";
+			echo "<table><tr><th>Product ID</th><th>Name</th><th>Cost</th><th>Stock</th></tr>";
 
 			// output data of each row
 
@@ -136,16 +621,17 @@
 
 				echo "<tr>
 
-					<td>&nbsp".$row["Pname"]."</td>
+					<td>&nbsp".$row["Pid"]."</td>
 
-					<td>"."&nbsp&nbsp$".$row["totCost"]."</td>
+					<td>"."&nbsp&nbsp".$row["Pname"]."</td>
 
-					<td>"."&nbsp&nbsp".$row["numItems"]."</td>
+					<td>"."&nbsp&nbsp$".$row["cost"]."</td>
+					
+					<td>"."&nbsp&nbsp".$row["stock"]."</td>
+
 
 					</tr>";
-					
-
-				$totalCost += $row["totCost"];
+				
 
 			}
 
@@ -155,103 +641,17 @@
 
 		else {
 
-			echo "&nbsp<a href = 'products.php'>Add items to shopping cart!</a><br><br>";
+			echo "0 results";
 
 		}
+		$conn2->close();
+}
 
-		
-		if(isset($_SESSION["id"])){
-
-			$id = (String)$_SESSION["id"];
-
-		}
-		
-		if($totalCost != 0){
-
-			echo "&nbspSubtotal: $" . $totalCost;
-
-		}
-
-		$actualTotal = ($totalCost*.07)+$totalCost;
-
-		print "<br>&nbspTotal Cost: $".$actualTotal;
-		
-		print '<form action="shoppingCart.php" method="post">';
-		
-		print '<br><br>&nbsp<input type="submit" id= "CheckoutButton" name="CheckoutButton" value="Checkout with Saved Card" /><br><br>';
-		
-		print '</form>';
-		
-			// if button pressed, set $thing to 1 and print out contents of div to process inventory. 
-		
-			$thing = 0;
-			
-			if (isset($_POST['CheckoutButton'])){ 
-				{
-					$thing = 1;
-				}
-			  }
-			  
-			print '<div id="checkout" class="answer_list" ><br>';
-			if($thing == 1) {
-				
-			print "<p>&nbspPayment of $".$actualTotal." Successful! Thank you for your purchase!</p><br>";
-			
-			$sql = "SELECT Pname, Pid, totCost, numItems FROM shoppingcart, inventory WHERE id=$id AND ProdId = Pid";
-
-			$result = $conn->query($sql);
-			
-			
-			//will use to update inventory. Also clear shopping cart?
-			$sql2 = "";
-			$result2 = "";
-			$sql3 = "";
-			$result3 = "";
-			
-			
-			if ($result->num_rows > 0) {
-
-				// output data of each row
-
-				while($row = $result->fetch_assoc()) {
-
-						
-						$Pname = $row["Pname"];
-						$Pid = $row["Pid"];
-						$numItems = $row["numItems"];
-						
-						print $Pname . " <br> ".$Pid . " <br> " . $numItems . " <br> ";
-						
-						$sql2 = "UPDATE beverages.inventory SET stock =  stock - $numItems WHERE inventory.Pid = $Pid";
-						
-						$result2 = $conn->query($sql2);
-						
-						$sql3 = "DELETE FROM beverages.shoppingcart WHERE $id = id";
-						
-						$result3 = $conn->query($sql3);
-						
-					}
-						
-
-			} 
-
-			}
 	
-		print '</div>';
-
-		
-		
-	
-
-		$conn->close();
-		
-
-	}
 
 ?>
 
 
-	
 
 </body>
 
